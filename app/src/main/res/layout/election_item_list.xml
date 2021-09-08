@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="election"
+            type="com.example.android.politicalpreparedness.network.models.Election" />
+        <variable
+            name="electionClick"
+            type="com.example.android.politicalpreparedness.election.adapter.ElectionListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{() -> electionClick.onClick(election)}"
+        android:paddingVertical="@dimen/default_padding"
+        android:textDirection="locale">
+
+        <TextView
+            android:id="@+id/election_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@{election.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            tools:text="Election Name" />
+
+        <TextView
+            android:id="@+id/election_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@{election.electionDay.toString()}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_normal"
+            tools:text="12th October 2019" />
+
+    </LinearLayout>
+</layout>

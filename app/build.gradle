@@ -16,6 +16,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "API_KEY", "\"AIzaSyD2BTzwS05FLqB1Yplmk443oq4tLYJJk6Y\""
     }
     buildTypes {
         release {
@@ -72,6 +73,7 @@ dependencies {
 
     //Room
     implementation "androidx.room:room-runtime:$version_room"
+    implementation "androidx.room:room-ktx:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
 
     // Location

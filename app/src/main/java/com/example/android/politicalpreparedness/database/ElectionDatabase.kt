@@ -14,7 +14,6 @@ abstract class ElectionDatabase: RoomDatabase() {
     abstract val electionDao: ElectionDao
 
     companion object {
-
         @Volatile
         private var INSTANCE: ElectionDatabase? = null
 
@@ -23,12 +22,10 @@ abstract class ElectionDatabase: RoomDatabase() {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
-                            context.applicationContext,
-                            ElectionDatabase::class.java,
-                            "election_database"
-                    )
-                            .fallbackToDestructiveMigration()
-                            .build()
+                        context.applicationContext,
+                        ElectionDatabase::class.java,
+                        "election_database"
+                    ).fallbackToDestructiveMigration().build()
 
                     INSTANCE = instance
                 }
