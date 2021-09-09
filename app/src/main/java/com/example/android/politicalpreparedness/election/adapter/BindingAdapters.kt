@@ -3,7 +3,6 @@ package com.example.android.politicalpreparedness.election.adapter
 import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -30,8 +29,8 @@ fun bindRecycleViewVisibility(recyclerView: RecyclerView, state: AsyncOperationS
 }
 
 @BindingAdapter("viewVisible")
-fun bindViewVisibility(frameLayout: FrameLayout, state: AsyncOperationState?) {
-    frameLayout.visibility = when (state) {
+fun bindViewVisibility(view: View, state: AsyncOperationState?) {
+    view.visibility = when (state) {
         AsyncOperationState.SUCCESS -> View.VISIBLE
         else -> View.GONE
     }
@@ -49,7 +48,7 @@ fun bindSpinnerVisibility(view: View, state: AsyncOperationState?) {
 @BindingAdapter("correspondenceAddress")
 fun bindViewAddress(textView: TextView, state: List<State>?) {
     state?.first()?.electionAdministrationBody?.correspondenceAddress?.let {
-        textView.text = "${it.line1} ${it.city}, ${it.state} ${it.zip}"
+        textView.text = it.toFormattedString()
         textView.visibility = View.VISIBLE
     } ?: run {
         textView.visibility = View.GONE
