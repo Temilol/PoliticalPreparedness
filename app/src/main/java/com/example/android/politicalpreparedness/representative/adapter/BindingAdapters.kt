@@ -1,5 +1,6 @@
 package com.example.android.politicalpreparedness.representative.adapter
 
+import android.widget.Button
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.representative.model.Representative
+import com.example.android.politicalpreparedness.util.AsyncOperationState
 
 @BindingAdapter("representativeData")
 fun bindRecyclerViewToDisplayRepresentativeList(
@@ -32,5 +34,13 @@ fun loadImage(imgView: ImageView, imgUrl: String?) {
                     .placeholder(R.drawable.ic_profile)
                     .error(R.drawable.ic_broken_image)
             ).into(imgView)
+    }
+}
+
+@BindingAdapter("disable")
+fun disableButton(button: Button, state: AsyncOperationState?) {
+    button.isEnabled = when(state) {
+        AsyncOperationState.LOADING -> false
+        else -> true
     }
 }

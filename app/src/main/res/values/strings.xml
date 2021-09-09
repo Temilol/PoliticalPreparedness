@@ -19,5 +19,7 @@
     <string name="zipcode">Zipcode</string>
     <string name="use_my_location">Use My Location</string>
     <string name="my_representatives">My Representatives</string>
-
+    <string name="settings">Settings</string>
+    <string name="location_error">Unable to get current location</string>
+    <string name="permission_error">Location permission must be granted to use this feature</string>
 </resources>

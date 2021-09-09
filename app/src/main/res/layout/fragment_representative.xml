@@ -114,6 +114,7 @@
                 android:text="@string/find_my_representatives"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
+                app:disable="@{representativeViewModel.state}"
                 app:layout_constraintTop_toBottomOf="@id/zip" />
 
             <!-- TODO: Add visual styling and content -->
@@ -126,6 +127,7 @@
                 android:text="@string/use_my_location"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
+                app:disable="@{representativeViewModel.state}"
                 app:layout_constraintTop_toBottomOf="@id/button_search" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -134,7 +136,7 @@
             android:id="@+id/representative_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/default_padding"
+            android:layout_margin="@dimen/default_padding"
             android:text="@string/my_representatives"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_large"
@@ -146,9 +148,9 @@
             android:id="@+id/representative_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingBottom="50dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
-            android:paddingBottom="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/representative_title"
             app:representativeData="@{representativeViewModel.representatives}"
